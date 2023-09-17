@@ -1,0 +1,4 @@
+
+
+
+ModuleInjector is a flattening of all the providers arrays that can be reached by following the NgModule.imports recursively.
