@@ -30,3 +30,23 @@ source$
 .subscribe(val =>
   console.log(`With switchMap: ${val}`)
 );
+const source2$ = from([1000, 8000, 5000]);
+source2$
+.pipe(
+  map((val ) => { 
+      console.log('map val', val)
+      return timer(val).pipe(map(() => val))
+  }),
+  switchMap(val => [val]),
+  switchMap(data => {
+    // console.log('switchMap data', data)
+    return data
+  })
+  )
+.subscribe(console.log
+  // (data) => {
+  // data.subscribe((data) => {
+  //     console.log(data)
+  // })
+  // }
+);
